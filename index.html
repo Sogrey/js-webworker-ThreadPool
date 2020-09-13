@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web worker</title>
+</head>
+
+<body>
+    <div id="result1"></div>
+    <!-- <script src="test.js"></script> -->
+    <script src="mul.min.js"></script>
+    <script>
+        var tp = new ThreadPool();
+        tp.init("workers/drag.min.js", 5);
+        var myName = "Sogrey";
+
+        for (let index = 0; index < 10000; index++) {
+            tp.dispatchWithCallback({
+                name: myName,
+                data: "咪咕直播" + index
+            }, function (result, worker) {
+                console.log(result);
+                tp.onFinishWithCallback(worker);
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    </script>
+</body>
+
+</html>
