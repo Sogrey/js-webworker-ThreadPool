@@ -172,5 +172,3 @@ var ThreadPool = function () {
 
     return WWTP;
 };
-
-//node G:\workspace\引擎\KiwiJSProtect加密系统V2.1\加密工具\kiwienc.js mul.js --anti-debug=0 --code-obf=0 --member-encrypt-ratio=0.1 --anti-log=0
